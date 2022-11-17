@@ -29,3 +29,4 @@ class helperMethods:
         loginPage.click_login_button()
         self.verify_elements_exist(homePage.login_error_banner)
         assert homePage.get_login_error_banner_text() == "We didn't recognize that email and/or password.Need help?"
+

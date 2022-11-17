@@ -1,18 +1,13 @@
-import pytest
-
-from page_objects.home_page import HomePage
-from page_objects.login_page import LoginPage
-from tests.conftest import getConfigAPI
 from utilities.BassClass import BaseClass
 from page_objects.login_help_page import LoginHelpPage
 from utilities.helper_methods import *
 
 
 class TestHomePage(BaseClass):
-    def test_successful_Login(self):
+    def test_successful_login(self):
         helperMethods.login(self)
 
-    def test_unsuccessful_Login(self):
+    def test_unsuccessful_login(self):
         helperMethods.unsuccessful_login(self)
 
     def test_unsuccessful_login_no_password(self):
@@ -48,6 +43,9 @@ class TestHomePage(BaseClass):
 
     def test_log_out_successfully(self):
         helperMethods.login(self)
-        breakpoint()
+        homePage = HomePage(self.driver)
+        homePage.click_logged_in_dropdown()
+        homePage.select_logout()
+        assert self.driver.current_url == 'https://www.hudl.com/en_gb/'
 
 
