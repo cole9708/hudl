@@ -1,0 +1,9 @@
+.idea
+.pytest_cache
+tests/SeleniumTests/__pycache__/test_login.cpython-310-pytest-7.2.0.pyc
+PageObjects/__pycache__/home_page.cpython-310.pyc
+PageObjects/__pycache__/login_help_page.cpython-310.pyc
+PageObjects/__pycache__/login_page.cpython-310.pyc
+
+
+

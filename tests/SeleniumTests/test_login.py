@@ -1,9 +1,9 @@
 import pytest
 
-from PageObjects.HomePage import HomePage
-from PageObjects.LoginPage import LoginPage
+from PageObjects.home_page import HomePage
+from PageObjects.login_page import LoginPage
 from utilities.BassClass import BaseClass
-from PageObjects.LoginHelpPage import LoginHelpPage
+from PageObjects.login_help_page import LoginHelpPage
 
 
 @pytest.mark.usefixtures("getData")
@@ -36,9 +36,10 @@ class TestHomePage(BaseClass):
         loginPage.getEmailField().send_keys(getData["email"])
         loginPage.clickLoginButton()
         self.verfifyElementExists(homePage.login_error_banner)
-        assert homePage.getLoginErrorBanner().text == "We didn't recognize that email and/or password.Need help?"
+        assert homePage.getLoginErrorBanner().text == "We didn't recognize that email and/or password.Need help?", "text does not match"
 
     def test_unsuccessful_login_with_no_username(self, getData):
+        loginHelpPage = LoginHelpPage(self.driver)
         homePage = HomePage(self.driver)
         loginPage = LoginPage(self.driver)
         homePage.clickSignIn()
