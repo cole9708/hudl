@@ -12,16 +12,14 @@ class LoginHelpPage:
     reset_btn = (By.CSS_SELECTOR, "button[data-qa-id='password-reset-submit-btn']")
     check_email_banner=(By.CSS_SELECTOR,"h3[class='uni-headline']")
 
-    #class ="uni-form--large
 
-
-    def getRestEmailFieldValue(self):
+    def get_reset_email_field_value(self):
         return self.driver.find_element(*LoginHelpPage.reset_email_field).get_attribute('value')
 
-    def clickResetButton(self):
+    def click_reset_button(self):
         button =self.driver.find_element(*LoginHelpPage.reset_btn)
         return ActionChains(self.driver).move_to_element(button).click(button).perform()
 
-    def getCheckEmailBanner(self):
+    def get_email_banner(self):
         return self.driver.find_element(*LoginHelpPage.check_email_banner).text
 

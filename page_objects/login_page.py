@@ -11,14 +11,14 @@ class LoginPage:
     logIn_btn = (By.ID, "logIn")
     needHelp_link=(By.LINK_TEXT,"Need help?")
 
-    def getEmailField(self):
+    def get_email_field(self):
         return self.driver.find_element(*LoginPage.email_field)
 
-    def getPasswordField(self):
+    def get_password_field(self):
         return self.driver.find_element(*LoginPage.password_field)
 
-    def clickLoginButton(self):
+    def click_login_button(self):
         return self.driver.find_element(*LoginPage.logIn_btn).click()
 
-    def clickNeedHelpLink(self):
+    def click_need_help_link(self):
         return self.driver.find_element(*LoginPage.needHelp_link).click()

@@ -41,13 +41,6 @@ def setup(request):
     driver_url = getConfigUI()['WEB']['url']
     driver.get(driver_url)
     driver.maximize_window()
-
     request.cls.driver = driver
     yield
     driver.close()
-
-
-@pytest.fixture(params=[({"email":"cole9708@googlemail.com", "password":"Dt79j4ne","wrongpassword":"Incorrect"})])
-def getData(request):
-    return request.param
-
