@@ -16,13 +16,13 @@ def pytest_addoption(parser):
 
 def getConfigUI():
     config = configparser.ConfigParser()
-    config.read("..\\utilities\\properties.ini")
+    config.read("../utilities/properties.ini")
     return config
 
 
 def getConfigAPI():
     config = configparser.ConfigParser()
-    config.read("..\\utilities\\properties.ini")
+    config.read("../utilities/properties.ini")
     return config
 
 
@@ -33,7 +33,7 @@ def setup(request):
     global driver
     browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
-        path = ("/HudlAutomation\\chromedriver.exe")
+        path = ("/HudlAutomation/chromedriver.exe")
         s = Service(path)
         driver = webdriver.Chrome(service=s)
     elif browser_name == "firefox":
@@ -47,7 +47,7 @@ def setup(request):
     driver.close()
 
 
-@pytest.fixture(params=[({"email":"cole9708@googlemail.com", "password":"password","wrongpassword":"Incorrect"})])
+@pytest.fixture(params=[({"email":"cole9708@googlemail.com", "password":"Dt79j4ne","wrongpassword":"Incorrect"})])
 def getData(request):
     return request.param
 
