@@ -3,8 +3,6 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
-
-
 driver = None
 
 
@@ -24,8 +22,6 @@ def getConfigAPI():
     config = configparser.ConfigParser()
     config.read("../utilities/properties.ini")
     return config
-
-
 
 
 @pytest.fixture()

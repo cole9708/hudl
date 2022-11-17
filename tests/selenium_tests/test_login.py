@@ -9,27 +9,11 @@ from utilities.helper_methods import *
 
 
 class TestHomePage(BaseClass):
-    def test_successfull_Login(self):
-        homePage = HomePage(self.driver)
-        loginPage = LoginPage(self.driver)
-        homePage.click_sign_in()
-
-        loginPage.get_email_field().send_keys(username)
-        loginPage.get_password_field().send_keys(password)
-        loginPage.click_login_button()
-        self.verify_current_url('https://www.hudl.com/home')
-        assert self.driver.current_url == 'https://www.hudl.com/home'
-        assert homePage.get_logged_in_intials() == 'Chris C'
+    def test_successful_Login(self):
+        helperMethods.login(self)
 
     def test_unsuccessful_Login(self):
-        homePage = HomePage(self.driver)
-        loginPage = LoginPage(self.driver)
-        homePage.click_sign_in()
-        loginPage.get_email_field().send_keys(username)
-        loginPage.get_password_field().send_keys(wrong_password)
-        loginPage.click_login_button()
-        self.verify_elements_exist(homePage.login_error_banner)
-        assert homePage.get_login_error_banner_text()== "We didn't recognize that email and/or password.Need help?"
+        helperMethods.unsuccessful_login(self)
 
     def test_unsuccessful_login_no_password(self):
         homePage = HomePage(self.driver)
@@ -50,7 +34,7 @@ class TestHomePage(BaseClass):
         assert homePage.get_login_error_banner_text() == "We didn't recognize that email and/or password.Need help?"
 
     def test_password_reset(self):
-        self.test_unsuccessful_Login()
+        helperMethods.unsuccessful_login(self)
         loginPage = LoginPage(self.driver)
         loginHelpPage = LoginHelpPage(self.driver)
         loginPage.click_need_help_link()
@@ -60,3 +44,10 @@ class TestHomePage(BaseClass):
         loginHelpPage.click_reset_button()
         self.verify_current_url('https://www.hudl.com/login/check-email')
         assert self.driver.current_url == 'https://www.hudl.com/login/check-email'
+
+
+    def test_log_out_successfully(self):
+        helperMethods.login(self)
+        breakpoint()
+
+
