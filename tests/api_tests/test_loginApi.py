@@ -5,7 +5,6 @@ from tests.conftest import getConfigAPI
 apiUrl = getConfigAPI()['API']['url']
 headers = {"Content-Type": "application/json"}
 
-
 def test_correct_login():
     payload = PayLoads().successful_payload()
     login_response = requests.post(apiUrl, json=payload, headers=headers, )
@@ -23,4 +22,3 @@ def test_incorrect_login():
     assert login_response.status_code == 200
     assert login_response.json() != expected_response
     print('api not logged in')
-

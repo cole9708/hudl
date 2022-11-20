@@ -4,8 +4,6 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from page_objects.home_page import HomePage
 from page_objects.login_page import LoginPage
-from page_objects.login_help_page import LoginHelpPage
-
 
 @pytest.mark.usefixtures("setup")
 class BaseClass:

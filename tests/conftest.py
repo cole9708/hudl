@@ -5,7 +5,6 @@ from selenium.webdriver.chrome.service import Service
 
 driver = None
 
-
 def pytest_addoption(parser):
     parser.addoption(
         "--browser_name", action="store", default="chrome"

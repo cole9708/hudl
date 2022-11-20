@@ -22,4 +22,3 @@ class LoginHelpPage:
 
     def get_email_banner(self):
         return self.driver.find_element(*LoginHelpPage.check_email_banner).text
-
