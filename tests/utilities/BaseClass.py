@@ -8,6 +8,8 @@ from page_objects.login_page import LoginPage
 @pytest.mark.usefixtures("setup")
 class BaseClass:
 
+
+
     def login(self, getData):
         homePage = HomePage(self.driver)
         loginPage = LoginPage(self.driver)
