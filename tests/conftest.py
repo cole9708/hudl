@@ -30,7 +30,9 @@ def setup(request):
         s = Service(path)
         driver = webdriver.Chrome(service=s)
     elif browser_name == "firefox":
-        print('firefox')
+        path = ("/HudlAutomation/geckodriver.exe")
+        s = Service(path)
+        driver = webdriver.Firefox(service=s)
     driver_url = getConfigUI()['WEB']['url']
     driver.get(driver_url)
     driver.maximize_window()
