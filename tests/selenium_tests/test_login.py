@@ -4,8 +4,12 @@ from tests.utilities.BaseClass import BaseClass
 from page_objects.login_help_page import LoginHelpPage
 from tests.utilities.helper_methods import helperMethods, username, password
 
+help_page_url = 'https://www.hudl.com/login/help'
+check_email_url = 'https://www.hudl.com/login/check-email'
+logged_out_url ='https://www.hudl.com/en_gb/'
 
 class TestHomePage(BaseClass):
+
     def test_successful_login(self):
         helperMethods.login(self)
 
@@ -35,17 +39,17 @@ class TestHomePage(BaseClass):
         loginPage = LoginPage(self.driver)
         loginHelpPage = LoginHelpPage(self.driver)
         loginPage.click_need_help_link()
-        self.verify_current_url('https://www.hudl.com/login/help')
-        assert self.driver.current_url == 'https://www.hudl.com/login/help'
+        self.verify_current_url(help_page_url)
+        assert self.driver.current_url == help_page_url
         assert loginHelpPage.get_reset_email_field_value() == username
         loginHelpPage.click_reset_button()
-        self.verify_current_url('https://www.hudl.com/login/check-email')
-        assert self.driver.current_url == 'https://www.hudl.com/login/check-email'
+        self.verify_current_url(check_email_url)
+        assert self.driver.current_url == check_email_url
 
     def test_log_out_successfully(self):
         helperMethods.login(self)
         homePage = HomePage(self.driver)
         homePage.click_logged_in_dropdown()
         homePage.select_logout()
-        assert self.driver.current_url == 'https://www.hudl.com/en_gb/'
+        assert self.driver.current_url == logged_out_url
 

@@ -26,7 +26,6 @@ def getConfigAPI():
 
 @pytest.fixture()
 def setup(request):
-    global driver
     browser_name = request.config.getoption("browser_name")
     if browser_name == "chrome":
         path = ("/HudlAutomation/chromedriver.exe")
