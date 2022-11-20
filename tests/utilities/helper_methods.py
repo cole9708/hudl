@@ -5,6 +5,7 @@ from tests.conftest import getConfigAPI
 username = getConfigAPI()['WEB']['username']
 password = getConfigAPI()['WEB']['password']
 wrong_password = getConfigAPI()['WEB']['wrong_password']
+homepage_url = 'https://www.hudl.com/home'
 
 
 class helperMethods:
@@ -16,8 +17,8 @@ class helperMethods:
         loginPage.get_email_field().send_keys(username)
         loginPage.get_password_field().send_keys(password)
         loginPage.click_login_button()
-        self.verify_current_url('https://www.hudl.com/home')
-        assert self.driver.current_url == 'https://www.hudl.com/home'
+        self.verify_current_url(homepage_url)
+        assert self.driver.current_url == homepage_url
         assert homePage.get_logged_in_intials() == 'Chris C'
 
     def unsuccessful_login(self):

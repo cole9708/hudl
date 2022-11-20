@@ -5,6 +5,9 @@ page_objects/__pycache__/home_page.cpython-310.pyc
 page_objects/__pycache__/login_help_page.cpython-310.pyc
 page_objects/__pycache__/login_page.cpython-310.pyc
 pycache
+tests/__pycache__/
+utilities/__pycache__/
+
 
 
 

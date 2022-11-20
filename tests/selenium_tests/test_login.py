@@ -1,6 +1,8 @@
-from utilities.BassClass import BaseClass
+from page_objects.home_page import HomePage
+from page_objects.login_page import LoginPage
+from tests.utilities.BaseClass import BaseClass
 from page_objects.login_help_page import LoginHelpPage
-from utilities.helper_methods import *
+from tests.utilities.helper_methods import helperMethods, username, password
 
 
 class TestHomePage(BaseClass):
@@ -17,7 +19,7 @@ class TestHomePage(BaseClass):
         loginPage.get_email_field().send_keys(username)
         loginPage.click_login_button()
         self.verify_elements_exist(homePage.login_error_banner)
-        assert homePage.get_login_error_banner_text()== "We didn't recognize that email and/or password.Need help?", "text does not match"
+        assert homePage.get_login_error_banner_text() == "We didn't recognize that email and/or password.Need help?"
 
     def test_unsuccessful_login_with_no_username(self):
         homePage = HomePage(self.driver)
@@ -40,12 +42,10 @@ class TestHomePage(BaseClass):
         self.verify_current_url('https://www.hudl.com/login/check-email')
         assert self.driver.current_url == 'https://www.hudl.com/login/check-email'
 
-
     def test_log_out_successfully(self):
         helperMethods.login(self)
         homePage = HomePage(self.driver)
         homePage.click_logged_in_dropdown()
         homePage.select_logout()
         assert self.driver.current_url == 'https://www.hudl.com/en_gb/'
-
 

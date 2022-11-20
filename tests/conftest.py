@@ -14,13 +14,13 @@ def pytest_addoption(parser):
 
 def getConfigUI():
     config = configparser.ConfigParser()
-    config.read("../utilities/properties.ini")
+    config.read("utilities/properties.ini")
     return config
 
 
 def getConfigAPI():
     config = configparser.ConfigParser()
-    config.read("../utilities/properties.ini")
+    config.read("utilities/properties.ini")
     return config
 
 

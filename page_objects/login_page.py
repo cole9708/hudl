@@ -9,6 +9,7 @@ class LoginPage:
     password_field = (By.ID, "password")
     logIn_btn = (By.ID, "logIn")
     needHelp_link=(By.LINK_TEXT,"Need help?")
+    remember_me_checkbox = (By.CLASS_NAME, "uni-form__check-item")
 
     def get_email_field(self):
         return self.driver.find_element(*LoginPage.email_field)
@@ -21,3 +22,6 @@ class LoginPage:
 
     def click_need_help_link(self):
         return self.driver.find_element(*LoginPage.needHelp_link).click()
+
+    def select_remember_me(self):
+        return  self.driver.find_element(*LoginPage.remember_me_checkbox).click()

@@ -1,13 +1,12 @@
 import requests
-import pytest
-from utilities.payloads import PayLoads
+from tests.utilities.payloads import PayLoads
 from tests.conftest import getConfigAPI
 
 apiUrl = getConfigAPI()['API']['url']
 headers = {"Content-Type": "application/json"}
 
 
-def test_correctlogin():
+def test_correct_login():
     payload = PayLoads().successful_payload()
     login_response = requests.post(apiUrl, json=payload, headers=headers, )
     expected_response = {'success': True, 'forward': '/welcome/320073?forward=&isLogin=True', 'firstName': 'Chris',
